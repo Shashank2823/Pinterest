@@ -1,0 +1,107 @@
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Gill Sans", "Gill Sans MT", "Myriad          Pro", "DejaVu Sans Condensed", Helvetica, Arial,        "sans-serif";
+      overflow-y: scroll; /* Always show scrollbar */
+    }
+
+    .navbar {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-family: 'Pinterest', cursive;
+      font-size: 24px;
+      color: #e60023;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333333;
+      margin-right: 20px;
+      transition: color 0.3s ease; 
+      
+    }
+
+    .nav-links a:not(.logout-btn):hover {
+      color: #e60023; 
+    }
+
+    .logout-btn {
+      background-color: #e60023;
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .logout-btn:hover {
+      background-color: #c7001e; /* Change background color on hover */
+    }
+
+    /* Hide scrollbar */
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Just to create some space after the fixed navbar */
+    
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">Pinterest</div>
+    <div class="nav-links">
+      <a id="feedLink" href="/feed">Feed</a>
+      <a id="profileLink" href="/profile">Profile</a>
+      <a type="button" href="/logout" class="logout-btn">Logout</a>
+    </div>
+  </div>
+
+<!-- Some content to make the page scrollable -->
+<br>
+<br>
+
+<script>
+
+  // Get the current URL path
+  var currentPath = window.location.pathname;
+
+  // Get the navigation links
+  var feedLink = document.getElementById("feedLink");
+  var profileLink = document.getElementById("profileLink");
+
+  // Check if the current path matches the feed link
+  if (currentPath === "/feed") {
+    feedLink.style.color = "#e60023"; 
+    feedLink.style.backgroundColor = "black !important";
+  } else if (currentPath === "/profile") {
+    profileLink.style.color = "#e60023"; 
+    profileLink.style.backgroundColor = "black !important";
+  }
+</script>
+
+</script>
+
+</body>
+</html>

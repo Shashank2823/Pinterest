@@ -1,2 +1,4 @@
 # Pinterest
-## Pinterest full stack app.
+# Pinterest full stack app.
+## Tech Stack
+ 
