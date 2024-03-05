@@ -32,13 +32,13 @@ Follow these steps to clone the repository and install dependencies:
 1. Clone the repository to your local machine:
 
     ```
-    git clone https://github.com/your-username/pinterest-clone.git
+    git clone https://github.com/Shashank2823/Pinterest.git
     ```
 
 2. Navigate to the project directory:
 
     ```
-    cd pinterest-clone
+    cd pinterest
     ```
 
 3. Install the dependencies using npm:
