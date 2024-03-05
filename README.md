@@ -18,6 +18,48 @@ This is a Pinterest clone built using Node.js, Express, Passport, Multer, HTML, 
 - EJS templating engine
 - CSS for styling
 
+## Prerequisites
+
+Before you can run this application, make sure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) (includes npm)
+- [MongoDB](https://www.mongodb.com/) installed and running
+
+## Cloning and Running the App
+
+Follow these steps to clone the repository and install dependencies:
+
+1. Clone the repository to your local machine:
+
+    ```
+    git clone https://github.com/your-username/pinterest-clone.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```
+    cd pinterest-clone
+    ```
+
+3. Install the dependencies using npm:
+
+    ```
+    npm install
+    ```
+
+4. Set up your MongoDB configuration:
+   
+    - Make sure MongoDB is running on your machine.
+    - Update the MongoDB connection string in the `config/database.js` file if necessary.
+
+5. Start the application:
+
+    ```
+    npx nodemon
+    ```
+
+6. Access the application in your web browser at `http://localhost:3000`.
+
 
 
 ## Contributing
