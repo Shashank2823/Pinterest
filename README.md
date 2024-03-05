@@ -1,4 +1,4 @@
-# Pinterest App
+# Pinterest Clone
 
 This is a Pinterest clone built using Node.js, Express, Passport, Multer, HTML, CSS, and MongoDB. The application allows users to create profiles, upload photos, and view a feed of posts from other users.
 
@@ -14,8 +14,10 @@ This is a Pinterest clone built using Node.js, Express, Passport, Multer, HTML, 
 - Node.js (Express) for the server side
 - MongoDB database with Mongoose
 - Passport.js for user authentication
+- Multer for file handling
 - EJS templating engine
 - CSS for styling
+
 
 
 ## Contributing

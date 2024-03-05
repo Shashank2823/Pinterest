@@ -1,0 +1,305 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad          Pro", "DejaVu Sans Condensed", Helvetica, Arial,        "sans-serif";
+}
+
+  .containerpers {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    height: 40%; /* Reduce container height to half */
+  }
+  
+  .flex{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: start;
+  }
+  .cardpers {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px; 
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(172, 20, 20, 0.1);
+    height: 40%; /* Reduce card height to half */
+  }
+  
+  .profile-picture {
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 10px; 
+  }
+  
+  .profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure entire image is visible */
+  }
+
+  .name {
+    font-size: 18px; 
+    margin: 0;
+  }
+  
+  .username {
+    font-size: 14px;
+    color: #777;
+    margin: 5px 0; 
+  }
+  
+  .tagline,
+  .description {
+    color: #555;
+    margin: 5px 0; 
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 8px 16px; 
+    background-color:red;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 14px; 
+  }
+  
+  .button:hover {
+    background-color:rgb(161, 47, 47)
+  }
+  
+
+
+/* ----------------- */
+
+.container
+{
+  padding-top: 13vh;
+  width: 1400px;
+  margin: auto;
+  columns: 6;
+  column-gap: 20px;
+  
+}
+.container .box
+{
+  width: 100%;
+  margin-bottom: 10px;
+  break-inside: avoid;
+  border-radius: 15px;
+  
+}
+.container .box img
+{
+  max-width: 100%;
+  min-width: 100%;
+  border-radius: 10px;
+  border:1px solid rgb(193, 193, 214) ;
+}
+
+
+img:hover {
+  
+  opacity: .95;
+  box-shadow: 0 0 10px #fff;
+}
+
+.caption{
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad          Pro", "DejaVu Sans Condensed", Helvetica, Arial,        "sans-serif";
+	padding: 2px;
+  position: relative;
+  background-color: #e0dcdc;
+}
+
+.ellipsis {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 19px;
+  background-color: #e0dcdc;
+}
+
+@media (max-width: 1427px)
+{
+  .container
+  {
+    columns: 5;
+    width: calc(100% - 40px);
+  }
+}
+@media (max-width: 1200px)
+{
+  .container
+  {
+    columns: 4;
+  }
+}
+
+@media (max-width: 1000px)
+{
+  .container
+  {
+    columns: 3;
+  }
+  
+  
+  body{
+		overflow-x: hidden;
+	}
+	
+	.navLink{
+	    position: absolute;
+	    right: 0px;
+	    height: 90vh;
+	    top: 10vh;
+	    background-color: #000; 
+	    display: flex;
+	    flex-direction: column;
+		align-items: center;
+		width: 30%;
+		transform: translateX(100%);
+		transition: transform 0.4s ease-in;
+		opacity: 0.9;
+	}
+	
+	.navLink li{
+		opacity: 1;
+	}
+	
+	.lines{
+		display: block;
+	}
+	
+	.nav-active{
+		transform: translateX(0%);
+	}
+	
+	@keyframes navLinkFade{
+		from{
+			opacity: 0;
+			transform: translateX(50px);
+			}
+		
+		to{
+			opacity: 1;
+			transform: translateX(0px);
+			}
+		}
+	
+	
+	.toggle .l1{
+		transform: rotate(-45deg) translate(-5px,6px);
+	}
+	
+	.toggle .l2{
+		opacity: 0;
+	}
+	
+	.toggle .l3{
+		transform: rotate(45deg) translate(-5px,-6px);
+	}
+}
+
+
+@media (max-width: 786px)
+{
+  .container
+  {
+    columns: 2;
+  }
+}
+
+
+@media (max-width: 480px)
+{
+  .container
+  {
+    columns: 1;
+  }
+}
+
+/* modal css */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  border-radius: 5px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form-group input[type="file"] {
+  border: none;
+}
+
+.form-group button {
+  background-color: #c12525;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-group button:hover {
+  background-color: #45a049;
+}
+
+.edit-button{
+  background-color: grey;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+/* Style the dropdown button */
+
+
