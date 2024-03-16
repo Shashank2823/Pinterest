@@ -69,6 +69,20 @@ router.post('/uploadprofile', isLoggedIn, upload.single("Profilepic") , async fu
  });
 
 
+
+router.post("/del",async (req,res)=>{
+  try {
+    const postId = req.body.id;
+    await postModel.findByIdAndDelete(postId);
+
+    res.redirect("/profile");
+} catch (error) {
+    console.error("Error deleting post:", error);
+    res.status(500).send("Error deleting post");
+}
+});
+
+
 router.post('/register', function(req, res){
   const { username, email, fullname } = req.body;
   const userData = new userModel({ username, email, fullname });

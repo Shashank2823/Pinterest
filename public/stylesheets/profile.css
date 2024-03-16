@@ -115,7 +115,7 @@ img:hover {
   font-family: "Gill Sans", "Gill Sans MT", "Myriad          Pro", "DejaVu Sans Condensed", Helvetica, Arial,        "sans-serif";
 	padding: 2px;
   position: relative;
-  background-color: #e0dcdc;
+  
 }
 
 .ellipsis {
@@ -300,6 +300,52 @@ img:hover {
   border-radius: 20px;
   cursor: pointer;
 }
-/* Style the dropdown button */
+
+/* Style for the caption container */
+.caption {
+  display: flex; 
+  align-items: center; 
+}
+
+.caption-content {
+  flex-grow: 1; /* Expand to fill remaining space */
+}
+
+.dropdown {
+  position: relative;
+  margin-left: 10px; 
+}
+
+.dropdown-button {
+  font-size: large;
+  border: none;
+  cursor: pointer;
+}
+
+.remove-form {
+  position: absolute;
+  top: -50px; 
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 100px;
+  
+  border: 1px solid #ddd;
+  z-index: 1;
+  display: none;
+}
+
+.remove-form button {
+  background-color: rgb(28, 26, 26);
+  min-width: 100px;
+  min-height: 50px;
+  border: none;
+  cursor: pointer;
+  color: #e0dcdc;
+}
+
+/* Show the remove form when dropdown is active */
+.dropdown:hover .remove-form {
+  display: block;
+}
 
 

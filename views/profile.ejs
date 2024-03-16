@@ -11,7 +11,7 @@
     <div class="containerpers">
         <div class="cardpers">
           <div class="profile-picture">
-            <img id="profileImage" src="/images/uploads/<%= user.dp %>" >  
+                <img id="profileImage" src="/images/uploads/<%= user.dp %>" >  
         </div>
         <button onclick="displayEditProfilePicture()" class="edit-button">Edit</button>
           <h2 class="name"><%= user.fullname %></h2>
@@ -62,9 +62,18 @@
                 <img src="/images/uploads/<%= post.image %>" alt="image">
             </a>
             <div class="caption">
-                <%= post.imageText %>
+                <div class="caption-content">
+                    <%= post.imageText %>
+                </div>
 
-                    <span class="ellipsis" onclick="toggleDropdown(this)">&#x22EE;</span>
+                <div class="dropdown">
+                    <button class="dropdown-button" onclick="toggleDropdown(this)">&#x22EE;</button>
+                    
+                    <form class="remove-form" action="/del" method="post" style="display: none;">
+                        <input type="hidden" name="id" value="<%= post._id %>">
+                        <button type="submit">remove</button>
+                    </form>
+                </div>
                     
             </div>
         </div> 
@@ -106,6 +115,29 @@
 
         //delete
 
+        function toggleDropdown(element) {
+        var dropdown = element.closest('.dropdown');
+        var removeForm = dropdown.querySelector('.remove-form');
+        if (removeForm.style.display === 'none') {
+            removeForm.style.display = 'block';
+            window.addEventListener('click', hideRemoveFormOnClickOutside);
+        } else {
+            removeForm.style.display = 'none';
+            // Remove event listener when hiding remove form
+            window.removeEventListener('click', hideRemoveFormOnClickOutside);
+        }
+        event.stopPropagation();
+    }
+
+    function hideRemoveFormOnClickOutside(event) {
+        var removeForms = document.querySelectorAll('.remove-form');
+        removeForms.forEach(function(removeForm) {
+            if (!removeForm.contains(event.target)) {
+                removeForm.style.display = 'none';
+                window.removeEventListener('click', hideRemoveFormOnClickOutside);
+            }
+        });
+    }
         
   </script>
     
