@@ -21,7 +21,10 @@ app.use(flash());
 app.use(expressSession({
   resave: false,
   saveUninitialized: false,
-  secret: "hey hey hey"
+  secret: "hey hey hey",
+  cookie: {
+    maxAge: 1000 * 60 * 60 // 1 hour in milliseconds
+  }
 }))
 app.use(passport.initialize());
 app.use(passport.session());
