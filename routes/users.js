@@ -1,7 +1,12 @@
 const mongoose = require('mongoose');
 const plm=require('passport-local-mongoose');
 
-mongoose.connect("mongodb+srv://shashank:db28$@cluster0.wzrp6ob.mongodb.net/pinterest?retryWrites=true&w=majority&appName=Cluster0");
+mongoose.connect("mongodb+srv://shashank:db28$@cluster0.wzrp6ob.mongodb.net/pinterest?retryWrites=true&w=majority&appName=Cluster0")
+.then(()=>{
+    console.log("database connected");
+}).catch((err)=>{
+    console.log("Error starting server")
+});
 
 const userSchema = new mongoose.Schema({
     username: {
