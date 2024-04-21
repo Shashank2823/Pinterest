@@ -44,6 +44,36 @@ router.get('/feed',isLoggedIn, async function(req, res, next) {
   res.render('feed',{user, post});
 });
 
+router.get('/showProfile',isLoggedIn, async function(req,res, next){
+  let username = req.query.username;
+  try {
+      const user = await userModel.findOne({username:username }).populate("posts");
+      console.log(username);
+      const loggedInUser = await userModel.findOne({ username: req.session.passport.user });
+      if(user.username == req.session.passport.user){
+        res.redirect('/profile');
+      }
+      res.render('showProfile', { user, loggedInUser });
+  } catch (error) {
+      console.error("Error in search:", error);
+      res.status(500).send("Error while searching");
+  }
+})
+router.post('/search', isLoggedIn, async function(req, res, next) {
+  let searchname = req.body.searchname;
+  try {
+      const user = await userModel.findOne({username:searchname });
+      console.log(searchname);
+      //const userIds = user.map(user => user._id);  
+
+      const post = await postModel.find({ user: user._id }).populate('user');  
+      res.render('feed', { post, user });
+  } catch (error) {
+      console.error("Error in search:", error);
+      res.status(500).send("Error while searching");
+  }
+});
+
 
 router.post('/upload',isLoggedIn, upload.single("file"), async function(req, res, next) {
   if(!req.file){
@@ -94,6 +124,7 @@ router.post('/register', function(req, res){
     })
   })
 });
+
 
 router.post('/login',passport.authenticate("local", {
   successRedirect: "/feed",

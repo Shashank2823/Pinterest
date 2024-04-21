@@ -7,6 +7,13 @@
   font-family: "Gill Sans", "Gill Sans MT", "Myriad          Pro", "DejaVu Sans Condensed", Helvetica, Arial,        "sans-serif";
 }
 
+.profile-pic {
+	width: 25px; /* Adjust to your desired size */
+	height: 25px; /* Maintain the same width and height for a perfect circle */
+	border-radius: 50%; /* This makes it round */
+	object-fit:cover; /* Ensures the image covers the circle without distortion */
+  }
+  
 
 .container
 {
@@ -25,6 +32,7 @@
   break-inside: avoid;
   border-radius: 15px;
 }
+
 .container .box img
 {
   max-width: 100%;
@@ -143,3 +151,4 @@ img:hover {
     columns: 1;
   }
 }
+

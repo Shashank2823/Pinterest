@@ -11,7 +11,9 @@
     <div class="containerpers">
         <div class="cardpers">
           <div class="profile-picture">
-                <img id="profileImage" src="/images/uploads/<%= user.dp %>" >  
+            <a href="/images/uploads/<%= user.dp %>">
+                <img id="profileImage" src="/images/uploads/<%= user.dp %>" >
+            </a>  
         </div>
         <button onclick="displayEditProfilePicture()" class="edit-button">Edit</button>
           <h2 class="name"><%= user.fullname %></h2>

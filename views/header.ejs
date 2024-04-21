@@ -1,43 +1,14 @@
 <html>
 <head>
+  <link rel="stylesheet" href="/stylesheets/profile.css">
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: "Gill Sans", "Gill Sans MT", "Myriad          Pro", "DejaVu Sans Condensed", Helvetica, Arial,        "sans-serif";
+      font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
       overflow-y: scroll; /* Always show scrollbar */
     }
 
-    .search-container {
-  flex-grow: 1;  /* Allows the container to use available space */
-  display: flex;
-  justify-content: center;  /* Centers the search input and button */
-  align-items: center;
-}
-
-.search-input {
-  padding: 8px 16px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  width: 40%;  /* Adjust width based on preference */
-  font-size: 16px;
-  color: #333;
-}
-
-.search-btn {
-  padding: 8px 16px;
-  background-color: #e60023;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  margin-left: 10px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.search-btn:hover {
-  background-color: #c7001e;
-}
     .navbar {
       background-color: #ffffff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -57,6 +28,36 @@
       color: #e60023;
     }
 
+    .search-container {
+      flex: 1;  /* Utilizes maximum available space */
+      display: flex;
+      justify-content: center;  /* Centers the search input and button horizontally */
+    }
+
+    .search-input {
+      padding: 8px 16px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      width: 60%;  /* Increased width */
+      font-size: 16px;
+      color: #333;
+    }
+
+    .search-btn {
+      padding: 8px 16px;
+      background-color: #e60023;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-left: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .search-btn:hover {
+      background-color: #c7001e;
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -67,7 +68,6 @@
       color: #333333;
       margin-right: 20px;
       transition: color 0.3s ease; 
-      
     }
 
     .nav-links a:not(.logout-btn):hover {
@@ -76,7 +76,7 @@
 
     .logout-btn {
       background-color: #e60023;
-      color: #ffffff;
+      color: white;
       border: none;
       padding: 8px 16px;
       border-radius: 5px;
@@ -85,59 +85,43 @@
     }
 
     .logout-btn:hover {
-      background-color: #c7001e; /* Change background color on hover */
+      background-color: #c7001e;
     }
 
     /* Hide scrollbar */
     body::-webkit-scrollbar {
       display: none;
     }
-
-    /* Just to create some space after the fixed navbar */
-    
   </style>
 </head>
 <body>
-
   <div class="navbar">
     <div class="logo">Pinterest</div>
-
     <div class="search-container">
-      <input type="text" placeholder="Search..." class="search-input">
-      <button class="search-btn">Search</button>
+      <form action="/search" method="POST">
+        <input type="text" name="searchname" placeholder="Search..." class="search-input">
+        <button type="submit" class="search-btn">Search</button>
+      </form>
     </div>
-
     <div class="nav-links">
       <a id="feedLink" href="/feed">Feed</a>
-      <a id="profileLink" href="/profile">Profile</a>
+      <a id="profileLink" href="/profile" class="profile-picture"style="height: 30px;width: 30px;"><img id="profileImage" src="/images/uploads/<%= user.dp %>" ></a>
       <a type="button" href="/logout" class="logout-btn">Logout</a>
     </div>
   </div>
+  <br><br>
+  <script>
+    var currentPath = window.location.pathname;
+    var feedLink = document.getElementById("feedLink");
+    var profileLink = document.getElementById("profileLink");
 
-<!-- Some content to make the page scrollable -->
-<br>
-<br>
-
-<script>
-
-  // Get the current URL path
-  var currentPath = window.location.pathname;
-
-  // Get the navigation links
-  var feedLink = document.getElementById("feedLink");
-  var profileLink = document.getElementById("profileLink");
-
-  // Check if the current path matches the feed link
-  if (currentPath === "/feed") {
-    feedLink.style.color = "#e60023"; 
-    feedLink.style.backgroundColor = "black !important";
-  } else if (currentPath === "/profile") {
-    profileLink.style.color = "#e60023"; 
-    profileLink.style.backgroundColor = "black !important";
-  }
-</script>
-
-</script>
-
+    if (currentPath === "/feed") {
+      feedLink.style.color = "#e60023";
+      feedLink.style.backgroundColor = "lightgrey";
+    } else if (currentPath === "/profile") {
+      profileLink.style.color = "#e60023";
+      profileLink.style.backgroundColor = "lightgrey";
+    }
+  </script>
 </body>
 </html>

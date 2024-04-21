@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pinterest profile</title>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+  </head>
+  <body>
+    <%-include('header',{user:loggedInUser}) %>
+    <div class="containerpers">
+        <div class="cardpers">
+          <div class="profile-picture">
+                <img id="profileImage" src="/images/uploads/<%= user.dp %>" >  
+        </div>
+          <h2 class="name"><%= user.fullname %></h2>
+          <h3 class="username">@<%= user.username %></h3>
+          
+        </div>
+    </div>
+
+    
+
+<!-- ----------------- -->
+    
+<div class="container">
+    <% user.posts.forEach(function(post) { %>   
+        <div class="box">
+            <a href="/images/uploads/<%= post.image %>">
+                <img src="/images/uploads/<%= post.image %>" alt="image">
+            </a>
+            <div class="caption">
+                <div class="caption-content">
+                    <%= post.imageText %>
+                </div>
+                    
+            </div>
+        </div> 
+    <% }) %>
+</div> 
+
+    
+  </body>
+</html>

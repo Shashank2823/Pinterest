@@ -5,31 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pinterest feed</title>
     <link rel="stylesheet" href="/stylesheets/feed.css">
+
+    
 </head>
 <body>
   <%-include('header')-%>
    
-   
-     
-   <div class="container">
-         
-    <% post.forEach(function(e){ %>   
-      <div class="box">
-                    <a href="/images/uploads/<%= e.image %>" >
-                    <img src="/images/uploads/<%= e.image %>" alt="image"></a>
-                <div class="caption"><%= e.imageText %> </div>
-                <div class="caption">@<%= e.user.username %> </div>
-
-      </div> 
-          <% }) %>
-   
-   </div>
+  <div class="container">
+    <% if (post.length > 0) { %>
+      <% post.forEach(function(e) { %>
+        <div class="box"><div class="profile-pic" >
+              <a href="/showProfile?username=<%= e.user.username %>" class="caption" style="color: black;text-decoration:none;"><img src="/images/uploads/<%= e.user.dp %>" alt="Profile picture">
+              <%= e.user.username %>
+            </a>
+          
+          </div>
+          <a href="/images/uploads/<%= e.image %>">
+            <img src="/images/uploads/<%= e.image %>" alt="image">
+          </a>
+          <div class="caption">
+            <%= e.imageText %>
+          </div>
+          
+            
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No results found.</p>
+    <% } %>
+  </div>
        
-       
-       <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-         <script src="app.js"></script>
-   
-                     
-   
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
