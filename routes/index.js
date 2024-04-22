@@ -64,7 +64,7 @@ router.post('/search', isLoggedIn, async function(req, res, next) {
   try {
       const user = await userModel.findOne({username:searchname });
       console.log(searchname);
-      //const userIds = user.map(user => user._id);  
+      
 
       const post = await postModel.find({ user: user._id }).populate('user');  
       res.render('feed', { post, user });

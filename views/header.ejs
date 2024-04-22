@@ -68,6 +68,7 @@
       color: #333333;
       margin-right: 20px;
       transition: color 0.3s ease; 
+      
     }
 
     .nav-links a:not(.logout-btn):hover {
@@ -102,9 +103,10 @@
         <input type="text" name="searchname" placeholder="Search..." class="search-input">
         <button type="submit" class="search-btn">Search</button>
       </form>
+
     </div>
     <div class="nav-links">
-      <a id="feedLink" href="/feed">Feed</a>
+      <div class="feedlink"><a id="feedLink" href="/feed">Feed</a></div>
       <a id="profileLink" href="/profile" class="profile-picture"style="height: 30px;width: 30px;"><img id="profileImage" src="/images/uploads/<%= user.dp %>" ></a>
       <a type="button" href="/logout" class="logout-btn">Logout</a>
     </div>
@@ -117,10 +119,8 @@
 
     if (currentPath === "/feed") {
       feedLink.style.color = "#e60023";
-      feedLink.style.backgroundColor = "lightgrey";
     } else if (currentPath === "/profile") {
-      profileLink.style.color = "#e60023";
-      profileLink.style.backgroundColor = "lightgrey";
+      profileLink.style.color = "#e60023";      
     }
   </script>
 </body>
